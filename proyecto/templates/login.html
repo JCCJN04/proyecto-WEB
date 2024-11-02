@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+    <!-- Mostrar mensajes flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flashes">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form class="form" method="POST" action="{{ url_for('login') }}">
+        <p class="form-title">Inicia sesión en tu cuenta</p>
+        <div class="input-container">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" required>
+        </div>
+        <div class="input-container">
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+        </div>
+        <button type="submit" class="submit">Iniciar sesión</button>
+
+        <p class="signup-link">
+            ¿No tienes cuenta?
+            <a href="{{ url_for('register') }}">Regístrate</a>
+        </p>
+
+        <p class="signup-link">
+            <a href="{{ url_for('recuperar_contrasena') }}">¿Olvidaste tu contraseña?</a>
+        </p>
+    </form>
+</body>
+</html>

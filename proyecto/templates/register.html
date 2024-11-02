@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+    <form class="form" method="POST" action="{{ url_for('register') }}">
+        <p class="form-title">Crear una nueva cuenta</p>
+        <div class="input-container">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+        </div>
+        <div class="input-container">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" required>
+        </div>
+        <div class="input-container">
+            <input type="email" name="correo_usuario" placeholder="Correo electrónico" required>
+        </div>
+        <div class="input-container">
+            <input type="text" name="telefono_usuario" placeholder="Número de teléfono" required>
+        </div>
+                
+        <div class="input-container">
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+        </div>
+        <div class="input-container">
+            <input type="password" name="confirmar_contrasena" placeholder="Confirmar contraseña" required>
+        </div>
+        <button type="submit" class="submit">Regístrate</button>
+
+        <p class="signup-link">
+            ¿Ya tienes una cuenta?
+            <a href="{{ url_for('login') }}">Inicia sesión</a>
+        </p>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='recuperar_contrasena.css') }}"> 
+</head>
+<body>
+    <form class="form" method="POST" action="{{ url_for('recuperar_contrasena') }}">
+        <p class="form-title">Recuperar Contraseña</p>
+        <div class="input-container">
+            <input type="text" name="nombre_usuario" placeholder="Nombre de usuario" required>
+        </div>
+        <div class="input-container">
+            <input type="email" name="correo" placeholder="Correo electrónico" required>
+        </div>
+        <div class="input-container">
+            <input type="password" name="nueva_contrasena" placeholder="Nueva contraseña" required>
+        </div>
+        <button type="submit" class="submit">Actualizar Contraseña</button>
+
+        <p class="signup-link">
+            <a href="{{ url_for('login') }}">¿Ya tienes una cuenta? Inicia sesión</a>
+        </p>
+    </form>
+</body>
+</html>
